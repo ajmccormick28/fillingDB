@@ -12,7 +12,7 @@
   </head>
   <body>
     <?php
-      //include "insertDB.php";
+      include "insertDB.php";
     ?>
     <div class="parent">
 			<!-- Row 1 -->
