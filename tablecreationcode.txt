@@ -1,0 +1,9 @@
+CREATE TABLE filltable (
+    id int NOT NULL AUTO_INCREMENT,
+    brickGroup varchar(1) NOT NULL,
+    brickNum tinyint(4),
+    firstName varchar(50) NULL,
+    lastName varchar(50) NULL,
+    age tinyint(4) NULL,
+    PRIMARY KEY (id)
+);
