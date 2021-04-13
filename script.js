@@ -1,8 +1,7 @@
 var lastBrick = ""
-
 function brickClicked(brick)
 {
-	document.getElementById(brick).innerHTML = brick;
+	//document.getElementById(brick).innerHTML = brick;
 	if(lastBrick != ""){
 		document.getElementById(lastBrick).innerHTML = "";
 	}
@@ -22,8 +21,9 @@ function brickClicked(brick)
 	
 
 	//Sending data to the PHP file
-	//let variables = "input=" + str + "&filter=" + document.getElementById("searchFilter").value;
-	//console.log(variables);
+	let variables = "groupName=" + brick[0] + "&brickNumber=" + brick[1];
+	console.log(variables);
 	xmlhttp.open("GET", "searchDB.php?" + variables, true);
 	xmlhttp.send();
 }
+

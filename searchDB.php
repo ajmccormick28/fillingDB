@@ -6,14 +6,16 @@
  	$uname = "root";
  	$psword = "";
  	//$p = "";
-  $ageFromDB = $firstNameFromDB = $lastNameFromDB = "";
+  	$ageFromDB = $firstNameFromDB = $lastNameFromDB = "";
 
-	$input = (isset($_REQUEST['input']) ? $_REQUEST['input'] : null);
-	$filter = (isset($_REQUEST['filter']) ? $_REQUEST['filter'] : null);
+	$groupName = (isset($_REQUEST['groupName']) ? $_REQUEST['groupName'] : null);
+	$brickNumber = (isset($_REQUEST['brickNumber']) ? $_REQUEST['brickNumber'] : null);
 
-	//echo $p;
-	//echo $searchFil;
 
+	echo $groupName;
+	echo $brickNumber;
+
+	/*
 	if($input !== null)
 	{
 		try {
@@ -80,5 +82,6 @@
 		  echo "Error: " . $e->getMessage();
 		}
 	}
+	*/
 	$conn = null;
 ?> 
