@@ -2,7 +2,7 @@
 	//include "searchVar.php";
 
  	$servername = "localhost";
- 	$dbname = "testdb";
+ 	$dbname = "database_v4";
  	$uname = "root";
  	$psword = "";
  	//$p = "";
@@ -11,12 +11,10 @@
 	$groupName = (isset($_REQUEST['groupName']) ? $_REQUEST['groupName'] : null);
 	$brickNumber = (isset($_REQUEST['brickNumber']) ? $_REQUEST['brickNumber'] : null);
 
+	$brickNumber = intval($brickNumber);
 
-	echo $groupName;
-	echo $brickNumber;
 
-	/*
-	if($input !== null)
+	if($groupName !== null)
 	{
 		try {
 		  $conn = new PDO("mysql:host=$servername;port=3306;dbname=$dbname", $uname, $psword);
@@ -24,25 +22,24 @@
 		  $conn->setAttribute(PDO::ATTR_EMULATE_PREPARES, false); // For max SQL injection safety
 
 			$stmt = null;
-		  $input .= '%';
-
-			switch($filter)
+		  //$input .= '%'; //+=
+			switch($groupName)
 			{
-				case "firstname":
-					$stmt = $conn->prepare("SELECT firstname, lastname, age FROM testtable WHERE firstname LIKE ?");
-				  $stmt->bindParam(1, $input, PDO::PARAM_STR, 50);
+				case "a":
+					$stmt = $conn->prepare("SELECT firstname, lastname, age FROM atable WHERE brickNum = ?");
+				  $stmt->bindParam(1, $brickNumber, PDO::PARAM_INT, 3);
 				  $stmt->execute();
 				  break;
 
-		    case "lastname":
-					$stmt = $conn->prepare("SELECT firstname, lastname, age FROM testtable WHERE lastname LIKE ?");
-				  $stmt->bindParam(1, $input, PDO::PARAM_STR, 50);
+		    case "b":
+					$stmt = $conn->prepare("SELECT firstname, lastname, age FROM btable WHERE brickNum = ?");
+				  $stmt->bindParam(1, $brickNumber, PDO::PARAM_INT, 3);
 				  $stmt->execute();
 				  break;
 
-		    case "age":
-					$stmt = $conn->prepare("SELECT firstname, lastname, age FROM testtable WHERE age LIKE ?");
-				  $stmt->bindParam(1, $input, PDO::PARAM_STR, 50);
+		    case "c":
+					$stmt = $conn->prepare("SELECT firstname, lastname, age	FROM ctable WHERE brickNum = ?");
+				  $stmt->bindParam(1, $brickNumber, PDO::PARAM_INT, 3);
 				  $stmt->execute();
 			    break;
 			}
@@ -82,6 +79,5 @@
 		  echo "Error: " . $e->getMessage();
 		}
 	}
-	*/
 	$conn = null;
 ?> 
