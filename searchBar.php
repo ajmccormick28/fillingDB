@@ -27,20 +27,26 @@
 			switch($filter)
 			{
 				case "firstname":
-					$stmt = $conn->prepare("SELECT firstname, lastname, age FROM testtable WHERE firstname LIKE ?");
+				  $stmt = $conn->prepare("SELECT firstName, lastName, age FROM atable WHERE firstName LIKE ? UNION SELECT firstName, lastName, age FROM btable WHERE firstName LIKE ? UNION SELECT firstName, lastName, age FROM ctable WHERE firstName LIKE ?");
 				  $stmt->bindParam(1, $input, PDO::PARAM_STR, 50);
+				  $stmt->bindParam(2, $input, PDO::PARAM_STR, 50);
+				  $stmt->bindParam(3, $input, PDO::PARAM_STR, 50);
 				  $stmt->execute();
 				  break;
 
 		    case "lastname":
-					$stmt = $conn->prepare("SELECT firstname, lastname, age FROM testtable WHERE lastname LIKE ?");
+				  $stmt = $conn->prepare("SELECT firstName, lastName, age FROM atable WHERE lastName LIKE ? UNION SELECT firstName, lastName, age FROM btable WHERE lastName LIKE ? UNION SELECT firstName, lastName, age FROM ctable WHERE lastName LIKE ?");
 				  $stmt->bindParam(1, $input, PDO::PARAM_STR, 50);
+				  $stmt->bindParam(2, $input, PDO::PARAM_STR, 50);
+				  $stmt->bindParam(3, $input, PDO::PARAM_STR, 50);
 				  $stmt->execute();
 				  break;
 
 		    case "age":
-					$stmt = $conn->prepare("SELECT firstname, lastname, age FROM testtable WHERE age LIKE ?");
+				  $stmt = $conn->prepare("SELECT firstName, lastName, age FROM atable WHERE age LIKE ? UNION SELECT firstName, lastName, age FROM btable WHERE age LIKE ? UNION SELECT firstName, lastName, age FROM ctable WHERE age LIKE ?");
 				  $stmt->bindParam(1, $input, PDO::PARAM_STR, 50);
+				  $stmt->bindParam(2, $input, PDO::PARAM_STR, 50);
+				  $stmt->bindParam(3, $input, PDO::PARAM_STR, 50);
 				  $stmt->execute();
 			    break;
 			}
@@ -57,7 +63,7 @@
 			   {
 				   //$assocArray = $result[0];
 				   //echo "<br/>";
-				   echo $assocArray["firstname"] . " " . $assocArray["lastname"] . " " . $assocArray["age"] . " Years Old";
+				   echo $assocArray["firstName"] . " " . $assocArray["lastName"] . " " . $assocArray["age"] . " Years Old";
 				   echo "<br/>";
 				   //echo $assocArray["lastname"];
 				   //echo "<br/";
