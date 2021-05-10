@@ -27,7 +27,7 @@
 			switch($filter)
 			{
 				case "firstname":
-				  $stmt = $conn->prepare("SELECT firstName, lastName, age FROM atable WHERE firstName LIKE ? UNION SELECT firstName, lastName, age FROM btable WHERE firstName LIKE ? UNION SELECT firstName, lastName, age FROM ctable WHERE firstName LIKE ?");
+				  $stmt = $conn->prepare("SELECT 'a' as source, brickNum, firstName, lastName, age FROM atable WHERE firstName LIKE ? UNION SELECT 'b' as source, brickNum, firstName, lastName, age FROM btable WHERE firstName LIKE ? UNION SELECT 'c' as source, brickNum, firstName, lastName, age FROM ctable WHERE firstName LIKE ?");
 				  $stmt->bindParam(1, $input, PDO::PARAM_STR, 50);
 				  $stmt->bindParam(2, $input, PDO::PARAM_STR, 50);
 				  $stmt->bindParam(3, $input, PDO::PARAM_STR, 50);
@@ -35,7 +35,7 @@
 				  break;
 
 		    case "lastname":
-				  $stmt = $conn->prepare("SELECT firstName, lastName, age FROM atable WHERE lastName LIKE ? UNION SELECT firstName, lastName, age FROM btable WHERE lastName LIKE ? UNION SELECT firstName, lastName, age FROM ctable WHERE lastName LIKE ?");
+				  $stmt = $conn->prepare("SELECT 'a' as source, brickNum, firstName, lastName, age FROM atable WHERE firstName LIKE ? UNION SELECT 'b' as source, brickNum, firstName, lastName, age FROM btable WHERE firstName LIKE ? UNION SELECT 'c' as source, brickNum, firstName, lastName, age FROM ctable WHERE firstName LIKE ?");
 				  $stmt->bindParam(1, $input, PDO::PARAM_STR, 50);
 				  $stmt->bindParam(2, $input, PDO::PARAM_STR, 50);
 				  $stmt->bindParam(3, $input, PDO::PARAM_STR, 50);
@@ -43,7 +43,7 @@
 				  break;
 
 		    case "age":
-				  $stmt = $conn->prepare("SELECT firstName, lastName, age FROM atable WHERE age LIKE ? UNION SELECT firstName, lastName, age FROM btable WHERE age LIKE ? UNION SELECT firstName, lastName, age FROM ctable WHERE age LIKE ?");
+				  $stmt = $conn->prepare("SELECT 'a' as source, brickNum, firstName, lastName, age FROM atable WHERE firstName LIKE ? UNION SELECT 'b' as source, brickNum, firstName, lastName, age FROM btable WHERE firstName LIKE ? UNION SELECT 'c' as source, brickNum, firstName, lastName, age FROM ctable WHERE firstName LIKE ?");
 				  $stmt->bindParam(1, $input, PDO::PARAM_STR, 50);
 				  $stmt->bindParam(2, $input, PDO::PARAM_STR, 50);
 				  $stmt->bindParam(3, $input, PDO::PARAM_STR, 50);
@@ -61,18 +61,19 @@
 
 			   foreach($result as $assocArray)
 			   {
-				   //$assocArray = $result[0];
-				   //echo "<br/>";
-				   echo $assocArray["firstName"] . " " . $assocArray["lastName"] . " " . $assocArray["age"] . " Years Old";
+				   $tempString = $assocArray["brickNum"];
+				   for($i = strlen($assocArray["brickNum"]); $i < 3; $i++){
+					   $tempString = "0" . $tempString; 
+				   }
+				   $tempString = $assocArray["source"] . $tempString;
+				 
+				   echo "<div onclick=\"brickClicked('" . $tempString . "')\">". $assocArray["firstName"] . " " . $assocArray["lastName"] . " " . $assocArray["age"] . " Years Old" . "</div>";
 				   echo "<br/>";
-				   //echo $assocArray["lastname"];
-				   //echo "<br/";
-				   //echo $assocArray["age"];
-				   //echo "<br/";
+
 
 				   $maxShow++;
 
-				   if($maxShow > 2)
+				   if($maxShow > 3)
 				   {
 				     break;
 				   }
