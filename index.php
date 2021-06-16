@@ -10,7 +10,7 @@
     <link href="style.css" rel="stylesheet" type="text/css" />
     <script src="script.js"></script>
   </head>
-  <body>
+  <body onload="searchNameClicked()">
   <?php
 	    //include 'searchVar.php';
 	    include 'searchDB.php';
@@ -43,7 +43,7 @@
     <?php
       include "insertDB.php";
     ?>
-		<iframe src="whatever.html" id="bf">
+		<iframe src="whatever.html" id="ba">
         </iframe>
 	   <br/>
      

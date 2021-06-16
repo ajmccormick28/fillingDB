@@ -67,7 +67,7 @@
 				   }
 				   $tempString = $assocArray["source"] . $tempString;
 				 
-				   echo "<div onclick=\"brickClicked('" . $tempString . "')\">". $assocArray["firstName"] . " " . $assocArray["lastName"] . " " . $assocArray["age"] . " Years Old" . "</div>";
+				   echo "<div onclick=\"searchNameClicked('" . $tempString . "')\">". $assocArray["firstName"] . " " . $assocArray["lastName"] . " " . $assocArray["age"] . " Years Old" . "</div>";
 				   echo "<br/>";
 
 
