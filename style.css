@@ -34,3 +34,8 @@ body {
   .brickR3C1 { grid-area: brickR3C1; }
   .brickR3C2 { grid-area: brickR3C2; }
   .brickR3C3 { grid-area: brickR3C3; }
+
+  iframe {
+    width: 50 vw;
+    height: 50 vw;
+  }
