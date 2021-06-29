@@ -10,7 +10,7 @@
     <link href="style.css" rel="stylesheet" type="text/css" />
     <script src="script.js"></script>
   </head>
-  <body onload="searchNameClicked()">
+  <body onload="loadedUp()">
   <?php
 	    //include 'searchVar.php';
 	    include 'searchDB.php';
@@ -18,7 +18,7 @@
 	  ?>
 	  <form class="form-inline" action="">
 	    <input class="form-control mr-sm-2" id="searchbar" type="text" placeholder="Search" onkeyup="searchBar(this.value)">
-	    <button class="btn btn-success" type="submit">Search</button>
+	    <button class="btn btn-success" type="submit" onclick="searchNameClicked()">Search</button>
 	    <br/>
 	    <span id="tem2"></span>
 	    <br/>

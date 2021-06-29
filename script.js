@@ -1,13 +1,30 @@
 var lastBrick = ""
-var brickGroupA = document.getElementById("ba").contentDocument;
+console.log("the beginning");
+var brickGroupADoc = null;
+
+function loadedUp(){
+	var brickGroupA = document.getElementById("ba");
+
+
+
+    brickGroupADoc = brickGroupA.contentDocument || brickGroupA.contentWindow.document;
+    
+    if(!brickGroupADoc){
+		throw "WE CAN't GET IT!";
+		console.log("nevermind");
+	}
+	else{
+		console.log("em k");
+	}
+}
 
 function searchNameClicked(brick)
 {
 	console.log('in here');
-	brickGroupA.getElementById("c003").innerHTML = "Hello";
+	//brickGroupADoc.getElementById(brick).innerHTML = "Hello";
 	//document.getElementById(brick).innerHTML = brick;
 	if(lastBrick != ""){
-		document.getElementById(lastBrick).innerHTML = "";
+		brickGroupADoc.getElementById(lastBrick).innerHTML = "";
 	}
 
 	var xmlhttp = new XMLHttpRequest();
@@ -15,7 +32,7 @@ function searchNameClicked(brick)
 	// This Receiving Data back from PHP
 	xmlhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
-			document.getElementById(brick).innerHTML = this.responseText;
+			brickGroupADoc.getElementById(brick).innerHTML = this.responseText;
 		}
 	};
 
