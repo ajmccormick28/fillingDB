@@ -1,8 +1,67 @@
-CREATE TABLE filltable (
+CREATE DATABASE manchester_veterans_memorial_database;
+CREATE TABLE a_brick_group (
     id int NOT NULL AUTO_INCREMENT,
     brickNum tinyint(4),
     firstName varchar(50) NULL,
     lastName varchar(50) NULL,
-    age tinyint(4) NULL,
+    brickDescription varchar(255) NULL,
     PRIMARY KEY (id)
 );
+CREATE TABLE b_brick_group (
+    id int NOT NULL AUTO_INCREMENT,
+    brickNum tinyint(4),
+    firstName varchar(50) NULL,
+    lastName varchar(50) NULL,
+    brickDescription varchar(255) NULL,
+    PRIMARY KEY (id)
+);
+CREATE TABLE c_brick_group (
+    id int NOT NULL AUTO_INCREMENT,
+    brickNum tinyint(4),
+    firstName varchar(50) NULL,
+    lastName varchar(50) NULL,
+    brickDescription varchar(255) NULL,
+    PRIMARY KEY (id)
+);
+CREATE TABLE d_brick_group (
+    id int NOT NULL AUTO_INCREMENT,
+    brickNum tinyint(4),
+    firstName varchar(50) NULL,
+    lastName varchar(50) NULL,
+    brickDescription varchar(255) NULL,
+    PRIMARY KEY (id)
+);
+CREATE TABLE e_brick_group (
+    id int NOT NULL AUTO_INCREMENT,
+    brickNum tinyint(4),
+    firstName varchar(50) NULL,
+    lastName varchar(50) NULL,
+    brickDescription varchar(255) NULL,
+    PRIMARY KEY (id)
+);
+CREATE TABLE f_brick_group (
+    id int NOT NULL AUTO_INCREMENT,
+    brickNum tinyint(4),
+    firstName varchar(50) NULL,
+    lastName varchar(50) NULL,
+    brickDescription varchar(255) NULL,
+    PRIMARY KEY (id)
+);
+CREATE TABLE g_brick_group (
+    id int NOT NULL AUTO_INCREMENT,
+    brickNum tinyint(4),
+    firstName varchar(50) NULL,
+    lastName varchar(50) NULL,
+    brickDescription varchar(255) NULL,
+    PRIMARY KEY (id)
+);
+
+
+??????????????
+
+DECLARE @i int = 0
+WHILE @i < 378
+BEGIN
+	SET @i = @i + 1
+    INSERT INTO a_brick_group(brickNum)
+    VALUES(
