@@ -58,10 +58,11 @@ CREATE TABLE g_brick_group (
 
 
 ??????????????
-
-DECLARE @i int = 0
-WHILE @i < 378
+// brickgroupA
+DECLARE @i int = 1
+WHILE @i < 379
 BEGIN
 	SET @i = @i + 1
     INSERT INTO a_brick_group(brickNum)
-    VALUES(
+    VALUES(@i)
+END
