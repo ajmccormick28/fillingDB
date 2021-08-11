@@ -28,7 +28,6 @@
 			<select name="searchFilter" onchange="filter(this.value)" id="searchFilter">
 		        <option value="firstname">First Name</option>
 		        <option value="lastname">Last Name</option>
-		        <option value="age">Age</option>
 		  </select>
 		  <br/>
 		  <span id="tem"></span>
